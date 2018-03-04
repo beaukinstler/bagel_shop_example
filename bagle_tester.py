@@ -3,6 +3,7 @@ from httplib2 import Http
 import json
 import sys
 import base64
+import pdb
 
 
 print "Running Endpoint Tester....\n"
@@ -36,6 +37,7 @@ try:
 	url = address + '/bagels'
 	data = dict(username = "TinnyTim", password = "Udacity", name = "plain", picture = "http://bonacbagel.weebly.com/uploads/4/0/5/4/40548977/s318635836612132814_p1_i1_w240.jpeg", description = "Old-Fashioned Plain Bagel", price= "$1.99")
 	resp, content = h.request(url,'POST', body = json.dumps(data), headers = {"Content-Type" : "application/json"})
+	
 	if resp['status'] != '200':
 		raise Exception('Received an unsuccessful status code of %s' % resp['status'])
 except Exception as err:
@@ -79,5 +81,3 @@ except Exception as err:
 else:
 	print "Test 4 PASS: Logged in User can view /bagels"
 	print "ALL TESTS PASSED!"
-GET | 302 | ? ms | GitHub.com
-GET | 200 | ? ms
