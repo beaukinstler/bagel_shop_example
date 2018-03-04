@@ -3,9 +3,9 @@ from flask import Flask, jsonify, request, url_for, abort, g
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
-from flask.ext.httpauth import HTTPBasicAuth
+from flask_httpauth import HTTPBasicAuth
 
-auth = HTTPBasicAuth() 
+authb = HTTPBasicAuth() 
 
 
 engine = create_engine('sqlite:///bagelShop.db')
@@ -16,10 +16,10 @@ session = DBSession()
 app = Flask(__name__)
 
 #ADD @auth.verify_password here
-@auth.verify_password
+@authb.verify_password
 def verify_password(username,password):
     user = session.query(User).filter_by(username=username).one()
-    if not user or not user.verify_password(password):
+    if not user or not user.vrfy_password(password):
         return False
 
     g.user = user
