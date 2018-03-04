@@ -1,0 +1,22 @@
+[[source]]
+
+name = "pypi"
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+
+
+[packages]
+
+flask = "*"
+sqlalchemy = "*"
+passlib = "*"
+flask-httpauth = "*"
+
+
+[dev-packages]
+
+
+
+[requires]
+
+python_version = "2.7"

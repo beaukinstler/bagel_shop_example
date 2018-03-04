@@ -23,7 +23,7 @@ def verify_password(username,password):
         return False
 
     g.user = user
-    return true
+    return True
 
 
 #ADD a /users route here
